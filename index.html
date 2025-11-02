@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>ドット絵エディター</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header class="app-header">
+      <h1 class="app-title">ドット絵エディター</h1>
+      <p class="app-subtitle">12×12キャンバス / DB32パレット対応</p>
+    </header>
+    <main class="app-main">
+      <section class="canvas-section">
+        <h2 class="section-title">キャンバス</h2>
+        <div id="canvas-wrapper" class="canvas-wrapper">
+          <!-- p5.js がここにキャンバスを生成 -->
+        </div>
+        <button id="grid-toggle" class="ui-button" type="button">グリッド表示: ON</button>
+        <div class="preview-block">
+          <h3 class="preview-title">プレビュー</h3>
+          <div id="preview-wrapper" class="preview-wrapper">
+            <!-- プレビュー用キャンバスを挿入 -->
+          </div>
+        </div>
+      </section>
+      <section class="palette-section">
+        <h2 class="section-title">パレット</h2>
+        <div id="palette-wrapper" class="palette-wrapper">
+          <!-- パレットUI -->
+        </div>
+      </section>
+      <section class="tool-section">
+        <h2 class="section-title">ツール</h2>
+        <div class="tool-wrapper">
+          <button id="tool-pen" class="ui-button tool-button" type="button" data-tool="pen">ペン (B)</button>
+          <button id="tool-eraser" class="ui-button tool-button" type="button" data-tool="eraser">消しゴム (E)</button>
+          <button id="tool-picker" class="ui-button tool-button" type="button" data-tool="picker">スポイト (I)</button>
+          <button id="tool-fill" class="ui-button tool-button" type="button" data-tool="fill">塗りつぶし (F)</button>
+        </div>
+        <div class="tool-actions">
+          <button id="tool-reset" class="ui-button tool-action-button" type="button">全消去 (Ctrl+D)</button>
+        </div>
+      </section>
+      <section class="info-section">
+        <h2 class="section-title">ステータス</h2>
+        <p id="status-message" class="status-message">初期化中...</p>
+        <div class="export-block">
+          <h3 class="subsection-title">データ出力</h3>
+          <div class="export-controls">
+            <div class="export-format-group">
+              <label class="export-format-option">
+                <input type="radio" name="export-format" value="pretty" checked>
+                整形あり
+              </label>
+              <label class="export-format-option">
+                <input type="radio" name="export-format" value="compact">
+                整形なし
+              </label>
+            </div>
+            <div class="export-button-group">
+              <button id="export-refresh" class="ui-button" type="button">更新</button>
+              <button id="export-copy" class="ui-button" type="button">コピー</button>
+            </div>
+          </div>
+          <textarea id="export-textarea" class="data-textarea" readonly></textarea>
+          <p id="export-feedback" class="feedback-message" aria-live="polite"></p>
+        </div>
+        <div class="import-block">
+          <h3 class="subsection-title">データ読み込み</h3>
+          <textarea id="import-textarea" class="data-textarea" placeholder="JSON形式の12×12配列を貼り付けてください"></textarea>
+          <div class="import-button-group">
+            <button id="import-apply" class="ui-button" type="button">読み込み</button>
+            <button id="import-clear" class="ui-button" type="button">クリア</button>
+          </div>
+          <p id="import-feedback" class="feedback-message" aria-live="polite"></p>
+        </div>
+      </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.9.3/lib/p5.min.js"></script>
+    <script src="sketch.js"></script>
+  </body>
+</html>

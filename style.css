@@ -1,0 +1,313 @@
+:root {
+  font-family: "Noto Sans JP", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #222;
+  background-color: #f5f5f5;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header {
+  padding: 16px;
+  background: #313866;
+  color: #ffffff;
+}
+
+.app-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.app-subtitle {
+  margin: 4px 0 0;
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.app-main {
+  flex: 1;
+  display: flex;
+  gap: 24px;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.canvas-section,
+.palette-section,
+.tool-section,
+.info-section {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.canvas-section {
+  flex: 0 0 auto;
+}
+
+.palette-section {
+  flex: 0 0 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tool-section {
+  flex: 0 0 180px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.info-section {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.section-title {
+  margin: 0 0 12px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.canvas-wrapper {
+  width: 360px;
+  height: 360px;
+  position: relative;
+  background-image: linear-gradient(45deg, #e0e0e0 25%, transparent 25%),
+    linear-gradient(-45deg, #e0e0e0 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #e0e0e0 75%),
+    linear-gradient(-45deg, transparent 75%, #e0e0e0 75%);
+  background-size: 60px 60px;
+  background-position: 0 0, 0 30px, 30px -30px, -30px 0;
+  border: 1px solid #cccccc;
+}
+
+.preview-wrapper {
+  width: 120px;
+  height: 120px;
+  position: relative;
+  background-image: linear-gradient(45deg, #e0e0e0 25%, transparent 25%),
+    linear-gradient(-45deg, #e0e0e0 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #e0e0e0 75%),
+    linear-gradient(-45deg, transparent 75%, #e0e0e0 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0;
+  border: 1px solid #cccccc;
+}
+
+.canvas-wrapper canvas,
+.preview-wrapper canvas {
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
+  display: block;
+}
+
+.ui-button {
+  margin-top: 12px;
+  padding: 8px 12px;
+  font-size: 12px;
+  border: 1px solid #313866;
+  border-radius: 4px;
+  background: #ffffff;
+  color: #313866;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.ui-button:hover {
+  background: #f0f4ff;
+}
+
+.tool-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tool-actions {
+  margin-top: 12px;
+}
+
+.tool-button {
+  margin-top: 0;
+  width: 100%;
+}
+
+.tool-button.is-active {
+  background: #313866;
+  color: #ffffff;
+}
+
+.tool-action-button {
+  margin-top: 0;
+  width: 100%;
+  border-style: dashed;
+}
+
+.tool-action-button:hover {
+  background: #ffe8e8;
+  border-color: #d94c4c;
+  color: #d94c4c;
+}
+
+.subsection-title {
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #313866;
+}
+
+.export-block,
+.import-block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.export-controls {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.export-format-group {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-size: 12px;
+}
+
+.export-format-option {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  cursor: pointer;
+}
+
+.export-format-option input {
+  cursor: pointer;
+}
+
+.export-button-group,
+.import-button-group {
+  display: flex;
+  gap: 8px;
+}
+
+.data-textarea {
+  width: 100%;
+  min-height: 150px;
+  padding: 8px;
+  border: 1px solid #c9c9d6;
+  border-radius: 4px;
+  font-family: "Roboto Mono", "Noto Sans Mono", SFMono-Regular, Consolas, monospace;
+  font-size: 12px;
+  line-height: 1.5;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+.feedback-message {
+  min-height: 18px;
+  margin: 0;
+  font-size: 12px;
+  color: #31572c;
+}
+
+.feedback-message.is-error {
+  color: #b00020;
+}
+
+.status-message {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #444444;
+}
+
+.preview-block {
+  margin-top: 16px;
+}
+
+.preview-title {
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #313866;
+}
+
+.palette-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+.palette-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.palette-group-title {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: #313866;
+}
+
+.palette-swatch-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.palette-swatch {
+  width: 28px;
+  height: 28px;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  background-color: var(--swatch-color, #ffffff);
+  cursor: pointer;
+  box-sizing: border-box;
+  position: relative;
+  padding: 0;
+}
+
+.palette-swatch::after {
+  content: attr(data-index);
+  position: absolute;
+  inset: auto 2px 2px auto;
+  font-size: 9px;
+  color: rgba(0, 0, 0, 0.55);
+}
+
+.palette-swatch:hover {
+  border-color: rgba(255, 170, 0, 0.4);
+}
+
+.palette-swatch.is-active {
+  border-color: #ffaa00;
+}
+
+.palette-swatch-transparent {
+  background-image: linear-gradient(45deg, #e0e0e0 25%, transparent 25%),
+    linear-gradient(-45deg, #e0e0e0 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #e0e0e0 75%),
+    linear-gradient(-45deg, transparent 75%, #e0e0e0 75%);
+  background-size: 10px 10px;
+  background-position: 0 0, 0 5px, 5px -5px, -5px 0;
+}
